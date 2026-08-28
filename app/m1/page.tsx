@@ -10,7 +10,7 @@ export default function M1() {
     <SmoothScroll>
       <main>
         <Hero />
-        <VideoSection />
+        {/* <VideoSection /> */}
         <section className="flex h-screen items-center justify-center"> <h2 className="text-6xl font-bold"> End </h2> </section>
       </main>
     </SmoothScroll>
