@@ -13,7 +13,7 @@ import {
 export default function SelectTestPage() {
   const [theme, setTheme] = useState("")
 
-  const items = ["Light", "Dark", "System", "Dracula", "Nord", "Solarized"]
+  const items = ["Light", "Dark", "System", "Dracula", "Nord", "Solarized", '1', '2', '23', '4123']
 
   return (
     <main className="min-w-xs mx-auto p-6">

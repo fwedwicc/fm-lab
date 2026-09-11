@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { TbChevronDown } from "react-icons/tb"
+import { Squircle } from "@squircle-js/react"
 
 type SelectContextType = {
   id?: string
@@ -131,13 +132,18 @@ export function SelectTrigger({ children }: { children?: React.ReactNode }) {
     <button
       type="button"
       onClick={() => setIsOpen(!isOpen)}
-      className={`${inputStyles} w-full flex justify-between items-center md:gap-2 gap-1.5 md:px-3 px-2.5 md:py-2 py-1.5 text-sm border border-neutral-200 dark:border-neutral-700 bg-neutral-100/40 dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700/60 rounded-[11px] focus:outline-none focus:ring-[3px] focus:ring-amber-200/50 dark:focus:ring-amber-300/20 focus:border-amber-300/70 dark:focus:border-amber-400 focus:bg-white dark:focus:bg-neutral-800 placeholder:text-neutral-400/70 dark:text-neutral-300 transition duration-300 ease-in-out cursor-pointer`}
     >
-      <div className="flex-center gap-2">
-        {children}
-        <p>{value || placeholder}</p>
-      </div>
-      <TbChevronDown className={`transition-all ease-in-out duration-300 ${isOpen ? "rotate-180" : ""}`} />
+      <Squircle
+        cornerRadius={12}
+        cornerSmoothing={1}
+        className={`${inputStyles} w-full flex justify-between items-center md:gap-2 gap-1.5 md:px-3.5 px-2.5 md:py-2.5 py-1.5 text-sm border-neutral-200 dark:border-neutral-700 bg-neutral-100/40 dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700/60 focus:outline-none focus:ring-[3px] focus:ring-amber-200/50 dark:focus:ring-amber-300/20 focus:border-amber-300/70 dark:focus:border-amber-400 focus:bg-white dark:focus:bg-neutral-800 placeholder:text-neutral-400/70 dark:text-neutral-300 transition duration-300 ease-in-out cursor-pointer`}
+      >
+        <div className="flex-center gap-2">
+          {children}
+          <p>{value || placeholder}</p>
+        </div>
+        <TbChevronDown className={`transition-all ease-in-out duration-300 ${isOpen ? "rotate-180" : ""}`} />
+      </Squircle>
     </button>
   )
 }
@@ -152,10 +158,15 @@ export function SelectContent({ children }: { children?: React.ReactNode }) {
           initial={{ opacity: 0, y: -10, scale: 0.90 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.90 }}
-          transition={{ duration: 0.3, ease: [0.68, -0.4, 0.265, 1.4] }}
-          className={`${label ? "mt-18" : "mt-11.5"} ${scrollable ? "overflow-y-auto max-h-44" : ""} space-y-0.5 absolute w-full bg-white dark:bg-neutral-800 border border-neutral-200/50 dark:border-neutral-700 rounded-xl p-1 shadow-xl shadow-neutral-400/10 dark:shadow-neutral-900/20 z-50 custom-scrollbar`}
+          transition={{ duration: 0.35, ease: [0.68, -0.4, 0.265, 1.4] }}
         >
-          {children}
+          <Squircle
+            cornerRadius={14}
+            cornerSmoothing={1}
+            className={`${scrollable ? " max-h-44" : ""} overflow-y-auto mt-2 bg-neutral-800 p-1.5 space-y-0.5 absolute w-full dark:border-neutral-700 shadow-xl shadow-neutral-400/10 dark:shadow-neutral-900/20 z-50 custom-scrollbar`}
+          >
+            {children}
+          </Squircle>
         </motion.div>
       )}
     </AnimatePresence>
@@ -170,9 +181,15 @@ export function SelectChoose() {
     <button
       type="button"
       disabled
-      className="w-full text-left px-2.5 py-1.5 rounded-lg text-sm font-medium cursor-pointer transition-smooth text-neutral-800 dark:text-neutral-300 disabled:opacity-40 disabled:cursor-not-allowed"
+      className="w-full disabled:opacity-40 disabled:cursor-not-allowed"
     >
-      Choose
+      <Squircle
+        cornerRadius={12}
+        cornerSmoothing={1}
+        className={`w-full text-left px-2.5 py-1.5 text-sm font-medium cursor-pointer transition-smooth text-neutral-800 dark:text-neutral-300`}
+      >
+        Choose
+      </Squircle>
     </button>
   )
 }
@@ -202,10 +219,16 @@ export function SelectItem({ value, children }: { value: string; children: React
     <button
       type="button"
       onClick={handleSelect}
-      className={`w-full text-left px-2.5 py-1.5 rounded-lg text-sm font-medium cursor-pointer transition-smooth text-neutral-800 dark:text-neutral-300
-      ${selectedValue === value ? "bg-neutral-200/50 dark:bg-neutral-700/70" : "hover:bg-neutral-200/50 dark:hover:bg-neutral-700/70"}`}
+      className='w-full'
     >
-      {children}
+      <Squircle
+        cornerRadius={9}
+        cornerSmoothing={2}
+        className={`w-full text-left px-2.75 py-1.5 text-sm font-medium cursor-pointer transition ease-in-out duration-200 text-neutral-800 dark:text-neutral-300
+          ${selectedValue === value ? "bg-neutral-200/50 dark:bg-neutral-700/70" : "hover:bg-neutral-200/50 dark:hover:bg-neutral-700/70"}`}
+      >
+        {children}
+      </Squircle>
     </button>
   )
 }
