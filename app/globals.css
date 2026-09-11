@@ -31,11 +31,11 @@ body {
 
 /* Custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  @apply w-0.5;
+  @apply w-0.75;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-neutral-300;
+  @apply bg-neutral-300 rounded-full;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {

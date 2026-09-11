@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { TbChevronDown } from "react-icons/tb"
-import { Squircle } from "@squircle-js/react"
 
 type SelectContextType = {
   id?: string
@@ -129,17 +128,19 @@ export function SelectTrigger({ children }: { children?: React.ReactNode }) {
   const { isOpen, setIsOpen, inputStyles, value, placeholder } = useSelectCtx()
 
   return (
-    <button
+    <motion.button
       type="button"
       onClick={() => setIsOpen(!isOpen)}
-      className={`${inputStyles} w-full flex justify-between items-center md:gap-2 gap-1.5 md:px-3.5 px-2.5 md:py-2.25 py-1.5 text-sm rounded-xl bg-stone-100 hover:bg-stone-200/60 focus:outline-none focus:ring-[3px] border border-transparent focus:ring-amber-400/10 focus:border focus:border-amber-200 focus:bg-white placeholder:text-stone-400/70 transition duration-200 ease-in-out cursor-pointer active:scale-[98.8%]`}
+      whileTap={{ scale: 0.988 }}
+      transition={{ duration: 0.12, ease: "easeOut" }}
+      className={`${inputStyles} w-full flex justify-between items-center md:gap-2 gap-1.5 md:px-3.5 px-2.5 md:h-10 py-1.5 text-sm rounded-xl bg-stone-100 hover:bg-stone-200/60 focus:outline-none focus:ring-[3px] border border-transparent focus:ring-amber-600/10 focus:border focus:border-amber-800/40 focus:bg-white placeholder:text-stone-400/70 transition duration-200 ease-in-out cursor-pointer`}
     >
       <div className="flex-center gap-2">
         {children}
         <p>{value || placeholder}</p>
       </div>
       <TbChevronDown className={`transition-all ease-in-out duration-300 ${isOpen ? "rotate-180" : ""}`} />
-    </button>
+    </motion.button>
   )
 }
 
@@ -150,10 +151,10 @@ export function SelectContent({ children }: { children?: React.ReactNode }) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -10, scale: 0.90 }}
+          initial={{ opacity: 0, y: -10, scale: 0.93 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -10, scale: 0.90 }}
-          transition={{ duration: 0.35, ease: [0.58, -0.4, 0.265, 1.4] }}
+          exit={{ opacity: 0, y: -10, scale: 0.93 }}
+          transition={{ duration: 0.3, ease: [0.68, -0.4, 0.265, 1.4] }}
         >
           <div
             className={`${scrollable ? " max-h-45.5" : ""} overflow-y-auto mt-2 bg-white p-1.5 space-y-0.5 absolute w-full shadow-2xl shadow-stone-400/20 rounded-2xl border border-stone-200/60 z-50 custom-scrollbar`}
