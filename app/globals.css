@@ -25,11 +25,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* OA yarn */
-.border-test {
-  @apply border border-indigo-500;
-}
-
+/* Custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   @apply w-0.5;
 }
