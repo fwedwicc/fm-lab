@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  @apply bg-amber-50/20 selection:bg-amber-400 selection:text-neutral-950;
+}
+
 /* :root {
   --background: #ffffff;
   --foreground: #3c3b3b;

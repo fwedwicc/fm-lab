@@ -132,18 +132,13 @@ export function SelectTrigger({ children }: { children?: React.ReactNode }) {
     <button
       type="button"
       onClick={() => setIsOpen(!isOpen)}
+      className={`${inputStyles} w-full flex justify-between items-center md:gap-2 gap-1.5 md:px-3.5 px-2.5 md:py-2.25 py-1.5 text-sm rounded-xl bg-stone-100 hover:bg-stone-200/60 focus:outline-none focus:ring-[3px] border border-transparent focus:ring-amber-400/10 focus:border focus:border-amber-200 focus:bg-white placeholder:text-stone-400/70 transition duration-200 ease-in-out cursor-pointer active:scale-[98.8%]`}
     >
-      <Squircle
-        cornerRadius={12}
-        cornerSmoothing={1}
-        className={`${inputStyles} w-full flex justify-between items-center md:gap-2 gap-1.5 md:px-3.5 px-2.5 md:py-2 py-1.5 text-sm border-neutral-200/50 border bg-neutral-100/60 hover:bg-neutral-200/40 focus:outline-none focus:ring-[3px] focus:ring-amber-200/50 focus:border-amber-300/70 focus:bg-white placeholder:text-neutral-400/70 transition duration-300 ease-in-out cursor-pointer`}
-      >
-        <div className="flex-center gap-2">
-          {children}
-          <p>{value || placeholder}</p>
-        </div>
-        <TbChevronDown className={`transition-all ease-in-out duration-300 ${isOpen ? "rotate-180" : ""}`} />
-      </Squircle>
+      <div className="flex-center gap-2">
+        {children}
+        <p>{value || placeholder}</p>
+      </div>
+      <TbChevronDown className={`transition-all ease-in-out duration-300 ${isOpen ? "rotate-180" : ""}`} />
     </button>
   )
 }
@@ -158,10 +153,10 @@ export function SelectContent({ children }: { children?: React.ReactNode }) {
           initial={{ opacity: 0, y: -10, scale: 0.90 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.90 }}
-          transition={{ duration: 0.35, ease: [0.68, -0.4, 0.265, 1.4] }}
+          transition={{ duration: 0.35, ease: [0.58, -0.4, 0.265, 1.4] }}
         >
           <div
-            className={`${scrollable ? " max-h-44" : ""} overflow-y-auto mt-2 bg-white p-1.5 space-y-0.5 absolute w-full shadow-2xl shadow-neutral-400/20 rounded-2xl border border-neutral-200/50 z-50 custom-scrollbar`}
+            className={`${scrollable ? " max-h-45.5" : ""} overflow-y-auto mt-2 bg-white p-1.5 space-y-0.5 absolute w-full shadow-2xl shadow-stone-400/20 rounded-2xl border border-stone-200/60 z-50 custom-scrollbar`}
           >
             {children}
           </div>
@@ -179,7 +174,7 @@ export function SelectChoose() {
     <button
       type="button"
       disabled
-      className="w-full text-left px-2.5 py-1.5 text-sm cursor-pointer transition-smooth text-neutral-800 disabled:opacity-40 disabled:cursor-not-allowed"
+      className="w-full text-left px-2.5 py-1.5 text-sm cursor-pointer transition-smooth text-stone-800 disabled:opacity-40 disabled:cursor-not-allowed"
     >
       Choose
     </button>
@@ -211,8 +206,8 @@ export function SelectItem({ value, children }: { value: string; children: React
     <button
       type="button"
       onClick={handleSelect}
-      className={`w-full text-left px-2.75 py-1.5 text-sm rounded-lg cursor-pointer transition ease-in-out duration-200 text-neutral-800
-        ${selectedValue === value ? "bg-neutral-200/60" : "hover:bg-neutral-200/60"}`}
+      className={`w-full text-left px-2.75 py-1.5 text-sm rounded-lg cursor-pointer transition ease-in-out duration-200 text-stone-800
+        ${selectedValue === value ? "bg-stone-200/40" : "hover:bg-stone-200/40"}`}
     >
       {children}
     </button>
