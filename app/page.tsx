@@ -17,7 +17,7 @@ export default function SelectTestPage() {
 
   return (
     <main className="min-w-xs mx-auto p-6">
-      <h1 className="text-xl font-semibold mb-4">Select Test</h1>
+      <h1 className="text-lg font-semibold mb-4">Select Test</h1>
       <Select
         id="theme"
         label="Theme"
