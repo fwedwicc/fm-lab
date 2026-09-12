@@ -145,7 +145,7 @@ export function SelectTrigger({ children }: { children?: React.ReactNode }) {
 }
 
 export function SelectContent({ children }: { children?: React.ReactNode }) {
-  const { isOpen, label, scrollable } = useSelectCtx()
+  const { isOpen, scrollable } = useSelectCtx()
 
   return (
     <AnimatePresence>
@@ -154,10 +154,13 @@ export function SelectContent({ children }: { children?: React.ReactNode }) {
           initial={{ opacity: 0, y: -10, scale: 0.93 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.93 }}
-          transition={{ duration: 0.3, ease: [0.68, -0.4, 0.265, 1.4] }}
+          transition={{ duration: 0.25, ease: [0.68, -0.4, 0.265, 1.4] }}
+          style={{
+            zIndex: 99999,
+          }}
         >
           <div
-            className={`${scrollable ? " max-h-45.5" : ""} overflow-y-auto mt-2 bg-white p-1.5 space-y-0.5 absolute w-full shadow-2xl shadow-stone-400/20 rounded-2xl border border-stone-200/60 z-50 custom-scrollbar`}
+            className={`${scrollable ? " max-h-45.5" : ""} overflow-y-auto mt-2 bg-white p-1.5 space-y-0.5 absolute w-full shadow-2xl shadow-stone-400/20 rounded-2xl border border-stone-200/60 custom-scrollbar`}
           >
             {children}
           </div>
@@ -207,7 +210,7 @@ export function SelectItem({ value, children }: { value: string; children: React
     <button
       type="button"
       onClick={handleSelect}
-      className={`w-full text-left px-2.75 py-1.5 text-sm rounded-lg cursor-pointer transition ease-in-out duration-200 text-stone-800
+      className={`w-full text-left px-2.75 py-1.5 text-sm rounded-lg cursor-pointer transition ease-in-out duration-200 text-stone-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/50 focus-visible:border focus-visible:border-amber-400 focus:border-none  
         ${selectedValue === value ? "bg-stone-200/40" : "hover:bg-stone-200/40"}`}
     >
       {children}

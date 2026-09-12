@@ -297,15 +297,8 @@ export function TooltipContent({
       x: ["left-center", "right-center"].includes(position) ? getAnimationValue() : 0,
       scale: 0.95,
      }}
-     // transition={{ duration: 0.3, ease: [0.68, -0.4, 0.265, 1.6] }}
-     // transition={{
-     //  type: 'spring',
-     //  stiffness: 230,
-     //  damping: 16,
-     //  bounce: 0.95,
-     // }}
      transition={{
-      opacity: { duration: 0.14, ease: "easeOut" },
+      opacity: { duration: 0.10, ease: "easeOut" },
       x: { type: "spring", stiffness: 230, damping: 18, bounce: 0.25 },
       y: { type: "spring", stiffness: 230, damping: 18, bounce: 0.25 },
       scale: { type: "spring", stiffness: 230, damping: 18, bounce: 0.2 },
