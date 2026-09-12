@@ -9,6 +9,8 @@ import {
   SelectChoose,
   SelectItems,
 } from "@/app/components/ui/select"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/app/components/ui/tooltip"
+import { TbInfoCircle } from "react-icons/tb"
 
 export default function SelectTestPage() {
   const [theme, setTheme] = useState("")
@@ -81,6 +83,46 @@ export default function SelectTestPage() {
               </SelectContent>
             </Select>
           </div>
+          <Tooltip position="right-center">
+            <TooltipTrigger>
+              <button className="px-4 py-2 rounded-lg bg-stone-200">Hover me</button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <div className="flex items-start gap-2 max-w-[220px]">
+                <TbInfoCircle className="mt-0.5 shrink-0 text-amber-300" size={16} />
+                <div className="leading-none">
+                  <p className="font-medium">Auto-save enabled</p>
+                  <p className="text-neutral-200/90">
+                    Changes are saved every 30 seconds while you type.
+                  </p>
+                </div>
+              </div>
+            </TooltipContent>
+          </Tooltip>
+          <Tooltip position="top-center">
+            <TooltipTrigger>
+              <button className="px-4 py-2 rounded-lg bg-stone-200">Hover me</button>
+            </TooltipTrigger>
+            <TooltipContent>Add to library</TooltipContent>
+          </Tooltip>
+          <Tooltip position="top-center">
+            <TooltipTrigger>
+              <button className="px-4 py-2 rounded-lg bg-stone-200">Hover me</button>
+            </TooltipTrigger>
+            <TooltipContent>Add to library</TooltipContent>
+          </Tooltip>
+          <Tooltip position="top-center">
+            <TooltipTrigger>
+              <button className="px-4 py-2 rounded-lg bg-stone-200">Hover me</button>
+            </TooltipTrigger>
+            <TooltipContent>Add to library</TooltipContent>
+          </Tooltip>
+          <Tooltip position="top-center">
+            <TooltipTrigger>
+              <button className="px-4 py-2 rounded-lg bg-stone-200">Hover me</button>
+            </TooltipTrigger>
+            <TooltipContent>Add to library Add to library Add to library Add to library</TooltipContent>
+          </Tooltip>
         </div>
       </div>
     </main>
