@@ -2,83 +2,562 @@
 
 import { useState } from "react"
 import {
- Select,
- SelectChoose,
- SelectContent,
- SelectItems,
- SelectLabel,
- SelectTrigger,
+  TbPalette,
+  TbSun,
+  TbMoon,
+  TbDeviceDesktop,
+  TbUser,
+  TbSettings,
+  TbLayoutGrid,
+  TbLayoutList,
+  TbBriefcase,
+} from "react-icons/tb"
+
+import {
+  Select,
+  SelectChoose,
+  SelectContent,
+  SelectItem,
+  SelectItems,
+  SelectLabel,
+  SelectTrigger,
 } from "@/app/components/ui/select"
 
-const themeOptions = ["Light", "Dark", "System", "Dracula", "Nord", "Solarized"]
+const themeOptions = [
+  "Light",
+  "Dark",
+  "System",
+  "Dracula",
+  "Nord",
+  "Solarized",
+]
+
+const languageOptions = [
+  "English",
+  "Filipino",
+  "Japanese",
+  "Korean",
+  "French",
+  "German",
+  "Spanish",
+]
+
+const countryOptions = [
+  "Philippines",
+  "United States",
+  "Japan",
+  "South Korea",
+  "Singapore",
+  "Canada",
+  "Australia",
+  "United Kingdom",
+]
+
+const sortOptions = [
+  "Newest first",
+  "Oldest first",
+  "Name A-Z",
+  "Name Z-A",
+]
+
+const viewOptions = [
+  "Grid",
+  "List",
+  "Compact",
+]
+
+const statusOptions = [
+  "Active",
+  "Pending",
+  "Inactive",
+]
+
+const priorityOptions = [
+  "Low",
+  "Medium",
+  "High",
+  "Critical",
+]
+
+const manyOptions = [
+  "Option 01",
+  "Option 02",
+  "Option 03",
+  "Option 04",
+  "Option 05",
+  "Option 06",
+  "Option 07",
+  "Option 08",
+  "Option 09",
+  "Option 10",
+  "Option 11",
+  "Option 12",
+  "Option 13",
+  "Option 14",
+  "Option 15",
+]
+
+function Section({
+  title,
+  description,
+  children,
+}: {
+  title: string
+  description?: string
+  children: React.ReactNode
+}) {
+  return (
+    <section className="w-full rounded-2xl border border-stone-200 p-6">
+      <div className="mb-6">
+        <h2 className="text-lg font-semibold leading-none">{title}</h2>
+        {description && (
+          <p className="mt-1 text-xs text-stone-500">{description}</p>
+        )}
+      </div>
+      {children}
+    </section>
+  )
+}
+
+function DemoGrid({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
+      {children}
+    </div>
+  )
+}
+
+function Demo({
+  title,
+  children,
+}: {
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <div className="w-full">
+      <p className="mb-2 text-xs uppercase tracking-wide text-stone-400">
+        {title}
+      </p>
+      {children}
+    </div>
+  )
+}
 
 export function SelectShowcase() {
- const [theme, setTheme] = useState("")
+  const [theme, setTheme] = useState("")
+  const [themeNoChoose, setThemeNoChoose] = useState("")
+  const [language, setLanguage] = useState("")
+  const [country, setCountry] = useState("")
+  const [sort, setSort] = useState("")
+  const [view, setView] = useState("")
+  const [status, setStatus] = useState("")
+  const [priority, setPriority] = useState("")
+  const [user, setUser] = useState("")
+  const [visibility, setVisibility] = useState("")
+  const [many, setMany] = useState("")
+  const [department, setDepartment] = useState("")
+  const [dateRange, setDateRange] = useState("")
 
- return (
-  <section className="w-full rounded-2xl border border-stone-200 p-6">
-   <h1 className="mb-6 text-lg font-semibold leading-none">Select component</h1>
-   <div className="flex items-start gap-4">
-    <div className="w-full max-w-60">
-     <Select
-      id="theme-default"
-      label="Default"
-      required
-      value={theme}
-      onValueChange={setTheme}
-      options={themeOptions}
-      scrollable
-      inputStyles="w-full"
-     >
-      <SelectLabel />
-      <SelectTrigger />
-      <SelectContent>
-       <SelectChoose />
-       <SelectItems />
-      </SelectContent>
-     </Select>
-    </div>
+  return (
+    <div className="flex w-full flex-col gap-8">
+      {/* ========================================================= */}
+      {/* BASIC */}
+      {/* ========================================================= */}
 
-    <div className="w-full max-w-60">
-     <Select
-      id="theme-no-choose"
-      label="No choose"
-      required
-      value={theme}
-      onValueChange={setTheme}
-      options={themeOptions}
-      scrollable
-      inputStyles="w-full"
-      noChoose
-     >
-      <SelectLabel />
-      <SelectTrigger />
-      <SelectContent>
-       <SelectChoose />
-       <SelectItems />
-      </SelectContent>
-     </Select>
-    </div>
+      <Section
+        title="Select component"
+        description="A select component allows users to choose one option from a list of options."
+      >
+        <DemoGrid>
+          <Demo title="Default">
+            <Select
+              id="theme-default"
+              label="Theme"
+              required
+              value={theme}
+              onValueChange={setTheme}
+              options={themeOptions}
+              scrollable
+            >
+              <SelectLabel />
+              <SelectTrigger />
+              <SelectContent>
+                <SelectChoose />
+                <SelectItems />
+              </SelectContent>
+            </Select>
+          </Demo>
 
-    <div className="w-full max-w-60">
-     <Select
-      id="theme-optional"
-      label="Not required"
-      value={theme}
-      onValueChange={setTheme}
-      options={themeOptions}
-      scrollable
-      inputStyles="w-full"
-     >
-      <SelectLabel />
-      <SelectTrigger />
-      <SelectContent>
-       <SelectChoose />
-       <SelectItems />
-      </SelectContent>
-     </Select>
+          <Demo title="No choose">
+            <Select
+              id="theme-no-choose"
+              label="Theme"
+              required
+              value={themeNoChoose}
+              onValueChange={setThemeNoChoose}
+              options={themeOptions}
+              noChoose
+              scrollable
+            >
+              <SelectLabel />
+              <SelectTrigger />
+              <SelectContent>
+                <SelectChoose />
+                <SelectItems />
+              </SelectContent>
+            </Select>
+          </Demo>
+
+          <Demo title="Optional">
+            <Select
+              id="language-optional"
+              label="Language"
+              value={language}
+              onValueChange={setLanguage}
+              options={languageOptions}
+              scrollable
+            >
+              <SelectLabel />
+              <SelectTrigger />
+              <SelectContent>
+                <SelectChoose />
+                <SelectItems />
+              </SelectContent>
+            </Select>
+          </Demo>
+
+          <Demo title="Pre-selected">
+            <Select
+              id="country-selected"
+              label="Country"
+              value={country || "Philippines"}
+              onValueChange={setCountry}
+              options={countryOptions}
+              scrollable
+            >
+              <SelectLabel />
+              <SelectTrigger />
+              <SelectContent>
+                <SelectChoose />
+                <SelectItems />
+              </SelectContent>
+            </Select>
+          </Demo>
+
+          <Demo title="Icon">
+            <Select
+              id="theme-icon-start"
+              label="Theme"
+              value={theme}
+              onValueChange={setTheme}
+            >
+              <SelectLabel />
+
+              <SelectTrigger>
+                <TbPalette className="shrink-0" />
+              </SelectTrigger>
+
+              <SelectContent>
+                <SelectChoose />
+
+                <SelectItem value="Light">
+                  <div className="flex items-center gap-2">
+                    <TbSun />
+                    <span>Light</span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Dark">
+                  <div className="flex items-center gap-2">
+                    <TbMoon />
+                    <span>Dark</span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="System">
+                  <div className="flex items-center gap-2">
+                    <TbDeviceDesktop />
+                    <span>System</span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Dracula">
+                  <div className="flex items-center gap-2">
+                    <TbPalette />
+                    <span>Dracula</span>
+                  </div>
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </Demo>
+
+          <Demo title="User selector">
+            <Select
+              id="user-selector"
+              label="Assignee"
+              required
+              value={user}
+              onValueChange={setUser}
+            >
+              <SelectLabel />
+
+              <SelectTrigger>
+                <TbUser className="shrink-0" />
+              </SelectTrigger>
+
+              <SelectContent>
+                <SelectChoose />
+
+                <SelectItem value="Frederick Moreno">
+                  <div className="flex items-center gap-2">
+                    <div className="flex size-7.5 shrink-0 items-center justify-center rounded-full bg-stone-500 text-stone-50 text-[10px] font-medium">
+                      FM
+                    </div>
+
+                    <div className="flex flex-col gap-0.5">
+                      <span className='text-[13px] font-medium leading-none'>Frederick Moreno</span>
+                      <span className="text-xs text-stone-400">
+                        Frontend Developer
+                      </span>
+                    </div>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Alex Johnson">
+                  <div className="flex items-center gap-2">
+                    <div className="flex size-7.5 shrink-0 items-center justify-center rounded-full bg-stone-500 text-stone-50 text-[10px] font-medium">
+                      AJ
+                    </div>
+
+                    <div className="flex flex-col gap-0.5">
+                      <span className='text-[13px] font-medium leading-none'>Alex Johnson</span>
+                      <span className="text-xs text-stone-400">
+                        Product Designer
+                      </span>
+                    </div>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Maria Santos">
+                  <div className="flex items-center gap-2">
+                    <div className="flex size-7.5 shrink-0 items-center justify-center rounded-full bg-stone-500 text-stone-50 text-[10px] font-medium">
+                      MS
+                    </div>
+
+                    <div className="flex flex-col gap-0.5">
+                      <span className='text-[13px] font-medium leading-none'>Maria Santos</span>
+                      <span className="text-xs text-stone-400">
+                        Product Manager
+                      </span>
+                    </div>
+                  </div>
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </Demo>
+
+          <Demo title="Long labels">
+            <Select
+              id="long-labels"
+              label="Report"
+              value={many}
+              onValueChange={setMany}
+              scrollable
+            >
+              <SelectLabel />
+              <SelectTrigger />
+
+              <SelectContent>
+                <SelectChoose />
+
+                <SelectItem value="Monthly performance report">
+                  Monthly performance report
+                </SelectItem>
+
+                <SelectItem value="Quarterly financial performance analysis">
+                  Quarterly financial performance analysis
+                </SelectItem>
+
+                <SelectItem value="Yearly user engagement and retention report">
+                  Yearly user engagement and retention report
+                </SelectItem>
+
+                <SelectItem value="Complete system activity and audit report">
+                  Complete system activity and audit report
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </Demo>
+
+          <Demo title="Scrollable rich items">
+            <Select
+              id="rich-scrollable"
+              label="Department"
+              value={department}
+              onValueChange={setDepartment}
+              scrollable
+            >
+              <SelectLabel />
+              <SelectTrigger />
+
+              <SelectContent>
+                <SelectChoose />
+
+                <SelectItem value="Engineering">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <TbSettings />
+                      <span>Engineering</span>
+                    </div>
+
+                    <span className="text-xs text-stone-400">24</span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Design">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <TbLayoutGrid />
+                      <span>Design</span>
+                    </div>
+
+                    <span className="text-xs text-stone-400">12</span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Marketing">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <TbBriefcase />
+                      <span>Marketing</span>
+                    </div>
+
+                    <span className="text-xs text-stone-400">8</span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Product">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <TbLayoutList />
+                      <span>Product</span>
+                    </div>
+
+                    <span className="text-xs text-stone-400">6</span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Operations">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <TbSettings />
+                      <span>Operations</span>
+                    </div>
+
+                    <span className="text-xs text-stone-400">14</span>
+                  </div>
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </Demo>
+
+          <Demo title="Label + description">
+            <Select
+              id="description-options"
+              label="Plan"
+              value={department}
+              onValueChange={setDepartment}
+            >
+              <SelectLabel />
+              <SelectTrigger />
+
+              <SelectContent>
+                <SelectChoose />
+
+                <SelectItem value="Free">
+                  <div className="flex flex-col">
+                    <span>Free</span>
+                    <span className="text-xs text-stone-400">
+                      For personal projects
+                    </span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Pro">
+                  <div className="flex flex-col">
+                    <span>Pro</span>
+                    <span className="text-xs text-stone-400">
+                      For professionals and teams
+                    </span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Enterprise">
+                  <div className="flex flex-col">
+                    <span>Enterprise</span>
+                    <span className="text-xs text-stone-400">
+                      Advanced features and support
+                    </span>
+                  </div>
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </Demo>
+
+          <Demo title="Label + badge">
+            <Select
+              id="badge-options"
+              label="Priority"
+              value={priority}
+              onValueChange={setPriority}
+            >
+              <SelectLabel />
+              <SelectTrigger />
+
+              <SelectContent>
+                <SelectChoose />
+
+                <SelectItem value="Low">
+                  <div className="flex items-center justify-between gap-3">
+                    <span>Low</span>
+                    <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500">
+                      LOW
+                    </span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Medium">
+                  <div className="flex items-center justify-between gap-3">
+                    <span>Medium</span>
+                    <span className="rounded-full bg-yellow-100 px-2 py-0.5 text-[10px] font-medium text-yellow-700">
+                      MED
+                    </span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="High">
+                  <div className="flex items-center justify-between gap-3">
+                    <span>High</span>
+                    <span className="rounded-full bg-orange-100 px-2 py-0.5 text-[10px] font-medium text-orange-700">
+                      HIGH
+                    </span>
+                  </div>
+                </SelectItem>
+
+                <SelectItem value="Critical">
+                  <div className="flex items-center justify-between gap-3">
+                    <span>Critical</span>
+                    <span className="rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-medium text-red-700">
+                      CRITICAL
+                    </span>
+                  </div>
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </Demo>
+        </DemoGrid>
+      </Section>
     </div>
-   </div>
-  </section>
- )
+  )
 }
