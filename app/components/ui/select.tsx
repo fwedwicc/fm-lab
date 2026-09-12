@@ -133,7 +133,7 @@ export function SelectTrigger({ children }: { children?: React.ReactNode }) {
       onClick={() => setIsOpen(!isOpen)}
       whileTap={{ scale: 0.988 }}
       transition={{ duration: 0.12, ease: "easeOut" }}
-      className={`${inputStyles} w-full flex justify-between items-center md:gap-2 gap-1.5 md:px-3.5 px-2.5 md:h-10 py-1.5 text-sm rounded-xl bg-stone-100 hover:bg-stone-200/60 focus:outline-none focus:ring-[3px] border border-transparent focus:ring-amber-600/10 focus:border focus:border-amber-800/40 focus:bg-white placeholder:text-stone-400/70 transition duration-200 ease-in-out cursor-pointer`}
+      className={`${inputStyles} w-full flex justify-between items-center md:gap-2 gap-1.5 md:px-3.5 px-2.5 h-10 text-sm rounded-xl bg-stone-100 hover:bg-stone-200/60 focus:outline-none focus:ring-[3px] border border-transparent focus:ring-amber-600/10 focus:border focus:border-amber-800/40 focus:bg-white placeholder:text-stone-400/70 transition duration-200 ease-in-out cursor-pointer`}
     >
       <div className="flex items-center gap-2">
         {children}
