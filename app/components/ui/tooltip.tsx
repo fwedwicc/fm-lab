@@ -57,7 +57,7 @@ export function Tooltip({
   styles = "",
   animation,
   position = "bottom-center",
-  offset = 6,
+  offset = 8,
 }: TooltipProps) {
   const [open, setOpen] = useState(false)
   const [positionState, setPositionState] = useState({ top: 0, left: 0 })

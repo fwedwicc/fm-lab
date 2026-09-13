@@ -29,7 +29,7 @@ export function TooltipShowcase() {
         <ShowcaseDemo title="Top center">
           <Tooltip position="top-center">
             <TooltipTrigger>
-              <button className="rounded-lg bg-stone-200 px-3 py-1.5 text-sm">
+              <button className="rounded-[10px] bg-stone-200/50 px-3.5 py-1.75 text-sm">
                 Top center
               </button>
             </TooltipTrigger>
@@ -40,7 +40,7 @@ export function TooltipShowcase() {
         <ShowcaseDemo title="Right center">
           <Tooltip position="right-center">
             <TooltipTrigger>
-              <button className="rounded-lg bg-stone-200 px-3 py-1.5 text-sm">
+              <button className="rounded-[10px] bg-stone-200/50 px-3.5 py-1.75 text-sm">
                 Right center
               </button>
             </TooltipTrigger>
@@ -51,7 +51,7 @@ export function TooltipShowcase() {
         <ShowcaseDemo title="Bottom center">
           <Tooltip position="bottom-center">
             <TooltipTrigger>
-              <button className="rounded-lg bg-stone-200 px-3 py-1.5 text-sm">
+              <button className="rounded-[10px] bg-stone-200/50 px-3.5 py-1.75 text-sm">
                 Bottom center
               </button>
             </TooltipTrigger>
@@ -62,7 +62,7 @@ export function TooltipShowcase() {
         <ShowcaseDemo title="Left center">
           <Tooltip position="left-center">
             <TooltipTrigger>
-              <button className="rounded-lg bg-stone-200 px-3 py-1.5 text-sm">
+              <button className="rounded-[10px] bg-stone-200/50 px-3.5 py-1.75 text-sm">
                 Left center
               </button>
             </TooltipTrigger>
@@ -73,7 +73,7 @@ export function TooltipShowcase() {
         <ShowcaseDemo title="Rich content">
           <Tooltip position="right-center" styles="!rounded-xl">
             <TooltipTrigger>
-              <button className="rounded-lg bg-stone-200 px-3 py-1.5 text-sm">
+              <button className="rounded-[10px] bg-stone-200/50 px-3.5 py-1.75 text-sm">
                 Rich tooltip
               </button>
             </TooltipTrigger>
@@ -97,7 +97,7 @@ export function TooltipShowcase() {
         <ShowcaseDemo title="Long text">
           <Tooltip position="top-center">
             <TooltipTrigger>
-              <button className="rounded-lg bg-stone-200 px-3 py-1.5 text-sm">
+              <button className="rounded-[10px] bg-stone-200/50 px-3.5 py-1.75 text-sm">
                 Long text
               </button>
             </TooltipTrigger>
@@ -111,7 +111,7 @@ export function TooltipShowcase() {
         <ShowcaseDemo title="User info">
           <Tooltip position="top-center" styles="!rounded-xl">
             <TooltipTrigger>
-              <button className="flex items-center gap-2 rounded-lg bg-stone-200 px-3 py-1.5 text-sm">
+              <button className="flex items-center gap-2 rounded-[10px] bg-stone-200/50 px-3.5 py-1.75 text-sm">
                 <TbUser size={16} />
                 Frederick
               </button>
@@ -135,7 +135,7 @@ export function TooltipShowcase() {
         <ShowcaseDemo title="Warning">
           <Tooltip position="top-center">
             <TooltipTrigger>
-              <button className="flex items-center gap-1.5 rounded-lg bg-stone-200 px-3 py-1.5 text-sm">
+              <button className="flex items-center gap-1.5 rounded-[10px] bg-stone-200/50 px-3.5 py-1.75 text-sm">
                 <TbAlertTriangle size={16} />
                 Warning
               </button>

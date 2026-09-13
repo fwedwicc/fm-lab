@@ -12,9 +12,9 @@ export function ShowcaseSection({
   children,
 }: ShowcaseSectionProps) {
   return (
-    <section className="w-full rounded-2xl border border-stone-200 p-6">
+    <section className="w-full rounded-3xl border border-stone-200/80 bg-[#fffdf8] p-7">
       <div className="mb-6">
-        <h2 className="text-lg font-semibold leading-none">{title}</h2>
+        <h2 className="text-xl font-semibold tracking-tight leading-none">{title}</h2>
         {description && (
           <p className="mt-1 text-xs text-stone-500">{description}</p>
         )}
@@ -41,7 +41,7 @@ export function ShowcaseDemo({
 }) {
   return (
     <div className='block'>
-      <p className="mb-2 text-xs uppercase tracking-wide text-stone-400">
+      <p className="mb-2 text-[10px] uppercase tracking-wide text-stone-400">
         {title}
       </p>
       {children}
