@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { TbChevronDown } from "react-icons/tb"
+import { TbChevronDown, TbCheck } from "react-icons/tb"
 
 type SelectContextType = {
   id?: string
@@ -13,6 +13,7 @@ type SelectContextType = {
   options?: string[]
   noChoose?: boolean
   scrollable?: boolean
+  indicator?: boolean
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
   onValueChange?: (value: string) => void
@@ -40,6 +41,7 @@ type SelectProps = {
   onValueChange?: (value: string) => void
   noChoose?: boolean
   scrollable?: boolean
+  indicator?: boolean
 }
 
 export function Select({
@@ -55,6 +57,7 @@ export function Select({
   onValueChange,
   noChoose = false,
   scrollable = false,
+  indicator = false,
 }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false)
   const selectRef = useRef<HTMLFieldSetElement>(null)
@@ -81,6 +84,7 @@ export function Select({
       options,
       noChoose,
       scrollable,
+      indicator,
       isOpen,
       setIsOpen,
       onValueChange,
@@ -97,6 +101,7 @@ export function Select({
       options,
       noChoose,
       scrollable,
+      indicator,
       isOpen,
       onValueChange,
     ]
@@ -198,8 +203,20 @@ export function SelectItems() {
   )
 }
 
-export function SelectItem({ value, children }: { value: string; children: React.ReactNode }) {
-  const { value: selectedValue, onValueChange, setIsOpen } = useSelectCtx()
+type SelectItemProps = {
+  value: string
+  children: React.ReactNode
+  indicator?: boolean
+}
+
+export function SelectItem({ value, children, indicator: itemIndicator }: SelectItemProps) {
+  const {
+    value: selectedValue,
+    onValueChange,
+    setIsOpen,
+    indicator: selectIndicator,
+  } = useSelectCtx()
+  const indicator = itemIndicator ?? selectIndicator
 
   const handleSelect = () => {
     onValueChange?.(value)
@@ -210,10 +227,13 @@ export function SelectItem({ value, children }: { value: string; children: React
     <button
       type="button"
       onClick={handleSelect}
-      className={`w-full text-left px-2.75 py-1.5 text-sm rounded-lg cursor-pointer transition ease-in-out duration-200 text-stone-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/50 focus-visible:border focus-visible:border-amber-400 focus:border-none  
+      className={`w-full flex items-center justify-between text-left px-2.75 py-1.5 text-sm rounded-lg cursor-pointer transition ease-in-out duration-200 text-stone-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/50 focus-visible:border focus-visible:border-amber-400 focus:border-none  
         ${selectedValue === value ? "bg-stone-200/40" : "hover:bg-stone-200/40"}`}
     >
       {children}
+      {indicator && (
+        <TbCheck className={`transition-all ease-in-out duration-300 ${selectedValue === value ? "opacity-100" : "opacity-0"}`} />
+      )}
     </button>
   )
 }

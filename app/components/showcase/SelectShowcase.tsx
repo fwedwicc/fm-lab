@@ -63,7 +63,6 @@ export function SelectShowcase() {
   const [themeNoChoose, setThemeNoChoose] = useState("")
   const [language, setLanguage] = useState("")
   const [country, setCountry] = useState("")
-  const [priority, setPriority] = useState("")
   const [user, setUser] = useState("")
   const [many, setMany] = useState("")
   const [department, setDepartment] = useState("")
@@ -290,7 +289,7 @@ export function SelectShowcase() {
             <SelectContent>
               <SelectChoose />
               <SelectItem value="Engineering">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center justify-between w-full gap-3">
                   <div className="flex items-center gap-2">
                     <TbSettings />
                     <span>Engineering</span>
@@ -299,7 +298,7 @@ export function SelectShowcase() {
                 </div>
               </SelectItem>
               <SelectItem value="Design">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center justify-between w-full gap-3">
                   <div className="flex items-center gap-2">
                     <TbLayoutGrid />
                     <span>Design</span>
@@ -308,7 +307,7 @@ export function SelectShowcase() {
                 </div>
               </SelectItem>
               <SelectItem value="Marketing">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center justify-between w-full gap-3">
                   <div className="flex items-center gap-2">
                     <TbBriefcase />
                     <span>Marketing</span>
@@ -317,7 +316,7 @@ export function SelectShowcase() {
                 </div>
               </SelectItem>
               <SelectItem value="Product">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center justify-between w-full gap-3">
                   <div className="flex items-center gap-2">
                     <TbLayoutList />
                     <span>Product</span>
@@ -327,7 +326,7 @@ export function SelectShowcase() {
                 </div>
               </SelectItem>
               <SelectItem value="Operations">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center justify-between w-full gap-3">
                   <div className="flex items-center gap-2">
                     <TbSettings />
                     <span>Operations</span>
@@ -378,49 +377,20 @@ export function SelectShowcase() {
           </Select>
         </ShowcaseDemo>
 
-        <ShowcaseDemo title="Label + badge">
+        <ShowcaseDemo title="Indicator">
           <Select
-            id="badge-options"
-            label="Priority"
-            value={priority}
-            onValueChange={setPriority}
+            id="indicator-options"
+            label="Theme"
+            value={theme}
+            onValueChange={setTheme}
+            options={themeOptions}
+            indicator
           >
             <SelectLabel />
             <SelectTrigger />
             <SelectContent>
               <SelectChoose />
-              <SelectItem value="Low">
-                <div className="flex items-center justify-between gap-3">
-                  <span>Low</span>
-                  <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500">
-                    LOW
-                  </span>
-                </div>
-              </SelectItem>
-              <SelectItem value="Medium">
-                <div className="flex items-center justify-between gap-3">
-                  <span>Medium</span>
-                  <span className="rounded-full bg-yellow-100 px-2 py-0.5 text-[10px] font-medium text-yellow-700">
-                    MED
-                  </span>
-                </div>
-              </SelectItem>
-              <SelectItem value="High">
-                <div className="flex items-center justify-between gap-3">
-                  <span>High</span>
-                  <span className="rounded-full bg-orange-100 px-2 py-0.5 text-[10px] font-medium text-orange-700">
-                    HIGH
-                  </span>
-                </div>
-              </SelectItem>
-              <SelectItem value="Critical">
-                <div className="flex items-center justify-between gap-3">
-                  <span>Critical</span>
-                  <span className="rounded-full bg-red-100 px-2 py-0.5 text-[10px] font-medium text-red-700">
-                    CRITICAL
-                  </span>
-                </div>
-              </SelectItem>
+              <SelectItems />
             </SelectContent>
           </Select>
         </ShowcaseDemo>
