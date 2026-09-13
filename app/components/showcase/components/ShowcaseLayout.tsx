@@ -40,7 +40,7 @@ export function ShowcaseDemo({
   children: ReactNode
 }) {
   return (
-    <div>
+    <div className='block'>
       <p className="mb-2 text-xs uppercase tracking-wide text-stone-400">
         {title}
       </p>

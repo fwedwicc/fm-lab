@@ -74,6 +74,7 @@ export function SelectShowcase() {
       description="A select component allows users to choose one option from a list of options."
     >
       <ShowcaseGrid>
+
         <ShowcaseDemo title="Default">
           <Select
             id="theme-default"
@@ -157,35 +158,29 @@ export function SelectShowcase() {
             onValueChange={setTheme}
           >
             <SelectLabel />
-
             <SelectTrigger>
               <TbPalette className="shrink-0" />
             </SelectTrigger>
-
             <SelectContent>
               <SelectChoose />
-
               <SelectItem value="Light">
                 <div className="flex items-center gap-2">
                   <TbSun />
                   <span>Light</span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Dark">
                 <div className="flex items-center gap-2">
                   <TbMoon />
                   <span>Dark</span>
                 </div>
               </SelectItem>
-
               <SelectItem value="System">
                 <div className="flex items-center gap-2">
                   <TbDeviceDesktop />
                   <span>System</span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Dracula">
                 <div className="flex items-center gap-2">
                   <TbPalette />
@@ -205,11 +200,9 @@ export function SelectShowcase() {
             onValueChange={setUser}
           >
             <SelectLabel />
-
             <SelectTrigger>
               <TbUser className="shrink-0" />
             </SelectTrigger>
-
             <SelectContent>
               <SelectChoose />
 
@@ -218,7 +211,6 @@ export function SelectShowcase() {
                   <div className="flex size-7.5 shrink-0 items-center justify-center rounded-full bg-stone-500 text-stone-50 text-[10px] font-medium">
                     FM
                   </div>
-
                   <div className="flex flex-col gap-0.5">
                     <span className='text-[13px] font-medium leading-none'>Frederick Moreno</span>
                     <span className="text-xs text-stone-400">
@@ -227,13 +219,11 @@ export function SelectShowcase() {
                   </div>
                 </div>
               </SelectItem>
-
               <SelectItem value="Alex Johnson">
                 <div className="flex items-center gap-2">
                   <div className="flex size-7.5 shrink-0 items-center justify-center rounded-full bg-stone-500 text-stone-50 text-[10px] font-medium">
                     AJ
                   </div>
-
                   <div className="flex flex-col gap-0.5">
                     <span className='text-[13px] font-medium leading-none'>Alex Johnson</span>
                     <span className="text-xs text-stone-400">
@@ -242,13 +232,11 @@ export function SelectShowcase() {
                   </div>
                 </div>
               </SelectItem>
-
               <SelectItem value="Maria Santos">
                 <div className="flex items-center gap-2">
                   <div className="flex size-7.5 shrink-0 items-center justify-center rounded-full bg-stone-500 text-stone-50 text-[10px] font-medium">
                     MS
                   </div>
-
                   <div className="flex flex-col gap-0.5">
                     <span className='text-[13px] font-medium leading-none'>Maria Santos</span>
                     <span className="text-xs text-stone-400">
@@ -271,22 +259,17 @@ export function SelectShowcase() {
           >
             <SelectLabel />
             <SelectTrigger />
-
             <SelectContent>
               <SelectChoose />
-
               <SelectItem value="Monthly performance report">
                 Monthly performance report
               </SelectItem>
-
               <SelectItem value="Quarterly financial performance analysis">
                 Quarterly financial performance analysis
               </SelectItem>
-
               <SelectItem value="Yearly user engagement and retention report">
                 Yearly user engagement and retention report
               </SelectItem>
-
               <SelectItem value="Complete system activity and audit report">
                 Complete system activity and audit report
               </SelectItem>
@@ -304,43 +287,35 @@ export function SelectShowcase() {
           >
             <SelectLabel />
             <SelectTrigger />
-
             <SelectContent>
               <SelectChoose />
-
               <SelectItem value="Engineering">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <TbSettings />
                     <span>Engineering</span>
                   </div>
-
                   <span className="text-xs text-stone-400">24</span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Design">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <TbLayoutGrid />
                     <span>Design</span>
                   </div>
-
                   <span className="text-xs text-stone-400">12</span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Marketing">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <TbBriefcase />
                     <span>Marketing</span>
                   </div>
-
                   <span className="text-xs text-stone-400">8</span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Product">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
@@ -351,14 +326,12 @@ export function SelectShowcase() {
                   <span className="text-xs text-stone-400">6</span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Operations">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <TbSettings />
                     <span>Operations</span>
                   </div>
-
                   <span className="text-xs text-stone-400">14</span>
                 </div>
               </SelectItem>
@@ -375,10 +348,8 @@ export function SelectShowcase() {
           >
             <SelectLabel />
             <SelectTrigger />
-
             <SelectContent>
               <SelectChoose />
-
               <SelectItem value="Free">
                 <div className="flex flex-col">
                   <span>Free</span>
@@ -387,7 +358,6 @@ export function SelectShowcase() {
                   </span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Pro">
                 <div className="flex flex-col">
                   <span>Pro</span>
@@ -396,7 +366,6 @@ export function SelectShowcase() {
                   </span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Enterprise">
                 <div className="flex flex-col">
                   <span>Enterprise</span>
@@ -418,10 +387,8 @@ export function SelectShowcase() {
           >
             <SelectLabel />
             <SelectTrigger />
-
             <SelectContent>
               <SelectChoose />
-
               <SelectItem value="Low">
                 <div className="flex items-center justify-between gap-3">
                   <span>Low</span>
@@ -430,7 +397,6 @@ export function SelectShowcase() {
                   </span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Medium">
                 <div className="flex items-center justify-between gap-3">
                   <span>Medium</span>
@@ -439,7 +405,6 @@ export function SelectShowcase() {
                   </span>
                 </div>
               </SelectItem>
-
               <SelectItem value="High">
                 <div className="flex items-center justify-between gap-3">
                   <span>High</span>
@@ -448,7 +413,6 @@ export function SelectShowcase() {
                   </span>
                 </div>
               </SelectItem>
-
               <SelectItem value="Critical">
                 <div className="flex items-center justify-between gap-3">
                   <span>Critical</span>
@@ -460,6 +424,7 @@ export function SelectShowcase() {
             </SelectContent>
           </Select>
         </ShowcaseDemo>
+
       </ShowcaseGrid>
     </ShowcaseSection>
   )
