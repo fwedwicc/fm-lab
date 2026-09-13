@@ -24,9 +24,9 @@ export function ShowcaseSection({
   )
 }
 
-export function ShowcaseGrid({ children }: { children: ReactNode }) {
+export function ShowcaseGrid({ children, grid = true }: { children: ReactNode; grid?: boolean }) {
   return (
-    <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
+    <div className={`${grid ? 'grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5' : 'flex flex-wrap items-start gap-4'}`}>
       {children}
     </div>
   )
@@ -40,7 +40,7 @@ export function ShowcaseDemo({
   children: ReactNode
 }) {
   return (
-    <div className="w-full">
+    <div>
       <p className="mb-2 text-xs uppercase tracking-wide text-stone-400">
         {title}
       </p>
